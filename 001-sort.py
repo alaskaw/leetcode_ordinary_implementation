@@ -1,4 +1,4 @@
-#bubble  
+#1.bubble  
 def bubble_sort(nums):
     length=len(nums)
     for i in range(length):
@@ -8,6 +8,7 @@ def bubble_sort(nums):
     return nums
 
 
+#2.select sort
 def select_sort(nums):
     length=len(nums)
     for i in range(length):
@@ -19,6 +20,7 @@ def select_sort(nums):
     return nums
 
 
+#insert sort
 def insert_sort(nums):
     length=len(nums)
     for i in range(1,length):
@@ -32,7 +34,7 @@ def insert_sort(nums):
 
 
 
-#merge_sort
+#4.merge_sort
 def merge(nums1,nums2):
     res=[]
     while nums1 and nums2:
@@ -50,7 +52,7 @@ def merge_sort(nums):
     return merge(merge_sort(nums[0:length//2]),merge_sort(nums[length//2:]))
 
 
-#quick  sort
+#5. quick sort
 import random
 def select_idx(nums,left,right):
     pivot=random.randint(left,right)
@@ -77,7 +79,7 @@ def sortarray(nums):
     return nums
 
 
-# shell sort
+#6. shell sort
 
 def shell_sort(nums):
     length=len(nums)
@@ -95,7 +97,7 @@ def shell_sort(nums):
 
 
 
-#heap_sort
+#7. heap sort
 
 def heapify(nums,length,i):
     largest=i
@@ -115,6 +117,26 @@ def heap_sort(nums):
         nums[0],nums[i]=nums[i],nums[0]
         heapify(nums,i,0)
     return nums
+
+
+
+#8. 桶排序
+ def bucket_sort(nums):
+    min_val,max_val,length=min(nums),max(nums),len(nums)
+    bucket=[0 for _ in range(min_val,max_val+1)]
+    for i in range(length):
+        bucket[nums[i]-min_val]+=1
+    length=len(bucket)
+    res=[]
+    for i in range(length):
+        if bucket[i]!=0:
+            res+=[min_val+i]*bucket[i]
+    return res
+
+
+
+
+
 
 
 
